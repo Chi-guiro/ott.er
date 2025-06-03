@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -8,22 +8,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen&display=swap" rel="stylesheet" />
 
   <style>
-    * {
+    html, body {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
-
-    html, body {
       font-family: 'Press Start 2P', serif;
       background-color: black;
       color: white;
-      width: 100%;
-      height: 100%;
     }
 
-    #inicio {
-      background-color: #5bccf7;
+    #inicio, #sorpresa {
       min-height: 100vh;
       padding: 30px 20px;
       text-align: center;
@@ -32,17 +26,12 @@
       justify-content: center;
     }
 
-    #sorpresa {
-      display: none;
-      background-color: #394529;
-      min-height: 100vh;
-      padding: 30px 20px;
-      text-align: center;
-    }
+    #inicio { background-color: #5bccf7; }
+    #sorpresa { background-color: #394529; display: none; }
 
     h1 {
       font-family: 'Silkscreen', cursive;
-      font-size: 22px;
+      font-size: 35px;
       margin-bottom: 20px;
     }
 
@@ -54,79 +43,65 @@
       color: white;
       border: 2px solid black;
       cursor: pointer;
-      border-radius: 0;
-      transition: transform 0.3s ease, background-color 0.3s ease;
+      transition: 0.3s ease;
     }
 
-    button:hover {
-      background-color: #ff1493;
-      transform: scale(0.90);
-    }
-
-    button:active {
-      transform: scale(0.80);
-    }
+    button:hover { background-color: #ff1493; transform: scale(0.9); }
+    button:active { transform: scale(0.8); }
 
     .boton-marron {
       background-color: #8B4513;
       color: white;
     }
-
-    .boton-marron:hover {
-      background-color: #5A2D0C;
-    }
+    .boton-marron:hover { background-color: #5A2D0C; }
 
     img.full-width {
       width: 100%;
       height: auto;
-      display: block;
       margin-top: 30px;
     }
 
-    p {
+    p, ul {
       font-family: 'Press Start 2P', serif;
       font-size: 15px;
-      white-space: pre-wrap;
       line-height: 1.4;
-      margin-bottom: 12px;
-      text-align: left;
       max-width: 650px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0 auto 12px auto;
+      text-align: left;
     }
 
     ul {
-      padding-left: 20px;
-      font-size: 13px;
-      text-align: left;
-      max-width: 650px;
-      margin: 0 auto 20px auto;
-      font-family: 'Press Start 2P', serif;
       list-style-type: square;
+      padding-left: 20px;
     }
 
-    ul li {
-      margin-bottom: 8px;
-    }
+    ul li { margin-bottom: 10px; }
 
-    .resaltar {
-      color: #FFD700;
-    }
+    /* COLORES PERSONALIZADOS */
+    .kenpachi { color: #00BFFF; }     /* azul cielo */
+    .gomitas { color: #FF4500; }      /* rojo intenso */
+    .darkrai { color: #8A2BE2; }      /* púrpura oscuro */
+    .cariño, .amor, .pelo, .oreja { color: #FF69B4; } /* rosa */
+    .feliz { color: #FFD700; }        /* dorado */
+    .crush { color: #FF8C00; }        /* naranja fuerte */
+    .historia, .mapas, .guerras { color: #90EE90; } /* verde claro */
+    .sabroso { color: #FF6347; }      /* tomate */
+    .pico { color: #ADFF2F; }         /* verde lima */
+    .atento { color: #00FA9A; }       /* menta */
+    .maria { color: #d552d5; }       /* violeta */
 
     .small-gif {
-      width: 100px;
       display: block;
       margin: 5px auto 15px auto;
       cursor: pointer;
     }
 
-    .small-gif.map-clickable {
-      transition: transform 0.2s;
-    }
-
-    .small-gif.map-clickable:hover,
-    .small-gif.map-clickable:active {
-      transform: scale(1.2);
+    .gif-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 20px;
     }
 
     #mapViewer {
@@ -154,140 +129,102 @@
       font-family: 'Press Start 2P', serif;
       text-align: center;
       max-width: 800px;
-      margin: 0 auto 20px auto;
       padding: 0 10px;
-    }
-
-    .gif-row {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 15px;
     }
   </style>
 </head>
 
 <body>
 
-  <div id="inicio">
-    <h1>Gracias por permitirme conocerte</h1>
-    <button onclick="mostrarSorpresa()">...</button>
-    <img class="full-width" src="images/intro.gif" alt="Intro GIF" />
+<div id="inicio">
+  <h1>Gracias por permitirme conocerte</h1>
+  <button onclick="mostrarSorpresa()">...</button>
+  <img class="full-width" src="images/intro.gif" alt="Intro GIF" />
+</div>
+
+<div id="sorpresa">
+  <div class="mensaje">
+    <p>He conocido a una persona <span class="amor">muy bonita</span> por poco más de tres meses y ha sido lindo. Un poco inusual, pero ha hecho mi vida un poquito más <span class="feliz">feliz</span>.</p>
+    <p>Soy muy malo aprendiendo cosas puntuales sobre personas, pero si tuviese que resumir un poco sobre él:</p>
+    <ul>
+      <li>Le gusta <span class="historia">Hora de aventura</span>, <span class="feliz">South Park</span>, <span class="crush">Bleach</span> y su personaje favorito es <span class="kenpachi">Kenpachi</span>.</li>
+      <img src="images/kenpachi.gif" class="small-gif" style="width: 110px;" />
+      <li>Le gustan las <span class="gomitas">gomitas</span>.</li>
+      <img src="images/gomita.gif" class="small-gif" style="width: 80px;" />
+      <li>Su Pokémon favorito es <span class="darkrai">Darkrai</span>.</li>
+      <div class="gif-row">
+        <img src="images/celebi.gif" style="width: 65px;" />
+        <img src="images/darkrai.gif" style="width: 150px;" />
+      </div>
+      <li>A todo le quiere poner <span class="pico">pico de gallo</span>.</li>
+      <li>Es bueno para aprender <span class="historia">fechas</span> y <span class="historia">nombres</span> en general.</li>
+      <li>Detalla cosas que los demás no, atesora cosas pequeñas y le pone <span class="historia">lógica</span> a todo.</li>
+      <img src="images/mind.gif" class="small-gif" style="width: 90px;" />
+      <li>Le gusta que le demuestre <span class="maria">cariño</span> tocándole la <span class="oreja">oreja</span> y el <span class="pelo">pelo</span>.</li>
+      <img src="images/love.gif" class="small-gif" style="width: 110px;" />
+      <li>Es <span class="amor">sentimental</span> y llorón.</li>
+      <li>Es muy <span class="cariño">consentidor</span>.</li>
+      <img src="images/consentidor.gif" class="small-gif" style="width: 110px;" />
+      <li>Le gusta cuando digo “<span class="sabroso">sabroso</span>”.</li>
+      <li>Le gusta <span class="historia">cocinar</span> y algún día me encantaría probar sus comidas para decirlo.</li>
+      <img src="images/chef.gif" class="small-gif" style="width: 110px;" />
+      <li>Es muy <span class="atento">atento</span> y me pregunta sobre las cosas que pienso.</li>
+      <li>Tiene un crush con <span class="maria">María Concepción Loperena</span>.</li>
+      <li>Y sobre todo, le gustan las <span class="guerras">guerras</span>, los <span class="mapas">mapas</span>, la <span class="historia">historia</span> y es muy bueno en eso.</li>
+      <img src="images/map.png" class="small-gif" style="width: 90px; cursor: pointer;" onclick="abrirMapa()" />
+    </ul>
+    <p>Espero poder seguir conociéndote y que me conozcas más a mí. <span class="feliz">Feliz cumpleaños</span> para ti, Luis. <span class="amor">Te quiero &lt;3</span></p>
   </div>
+  <img class="full-width" src="images/ranita.gif" alt="Ranita feliz" />
+</div>
 
-  <div id="sorpresa">
-    <div class="mensaje">
-      <p>He conocido a una persona <span class="resaltar">muy bonita</span> por poco más de tres meses y ha sido lindo. Un poco inusual, pero ha hecho mi vida un poquito más feliz.</p>
-      <p>Soy muy malo aprendiendo cosas puntuales sobre personas, pero si tuviese que resumir un poco sobre él:</p>
-      <ul>
-        <li>Le gusta <span class="resaltar">Hora de aventura</span>, <span class="resaltar">South Park</span>, <span class="resaltar">Bleach</span> y su personaje favorito es <span class="resaltar">Kenpachi</span>.</li>
-        <img src="images/kenpachi.gif" alt="Kenpachi GIF" class="small-gif" />
-        <li>Le gustan las <span class="resaltar">gomitas</span>.</li>
-        <img src="images/gomita.gif" alt="Gomita GIF" style="width: 80px; display: block; margin: 5px auto 15px auto;" />
-        <li>Su Pokémon favorito es <span class="resaltar">Darkrai</span>.</li>
-        <div class="gif-row">
-          <img src="images/celebi.gif" alt="Celebi GIF" style="width: 110px;" />
-          <img src="images/darkrai.gif" alt="Darkrai GIF" style="width: 140px;" />
-        </div>
-        <li>A todo le quiere poner <span class="resaltar">"pico de gallo"</span>.</li>
-        <li>Es bueno para aprender <span class="resaltar">fechas</span> y <span class="resaltar">nombres</span> en general.</li>
-        <li>Detalla cosas que los demás no, atesora cosas pequeñas y le pone <span class="resaltar">lógica</span> a todo.</li>
-        <img src="images/mind.gif" alt="Mind GIF" class="small-gif" />
-        <li>Le gusta que le demuestre cariño tocándole la <span class="resaltar">oreja</span> y el <span class="resaltar">pelo</span>.</li>
-        <img src="images/love.gif" alt="Love GIF" class="small-gif" />
-        <li>Es <span class="resaltar">sentimental</span> y llorón.</li>
-        <li>Es muy <span class="resaltar">consentidor</span>.</li>
-        <img src="images/consentidor.gif" alt="Consentidor GIF" class="small-gif" />
-        <li>Le gusta cuando digo “<span class="resaltar">sabroso</span>”.</li>
-        <li>Le gusta <span class="resaltar">cocinar</span> y algún día me gustaría probar sus comidas.</li>
-        <img src="images/chef.gif" alt="Chef GIF" class="small-gif" />
-        <li>Es muy <span class="resaltar">atento</span> y me pregunta sobre las cosas que pienso.</li>
-        <li>Tiene un crush con <span class="resaltar">María Concepción Loperena</span>.</li>
-        <li>Y sobre todo, le gustan las <span class="resaltar">guerras</span>, los <span class="resaltar">mapas</span>, la <span class="resaltar">historia</span> y es muy bueno en eso.</li>
-        <img src="images/map.png" alt="Ver mapa" class="small-gif map-clickable" onclick="abrirMapa()" id="mapIcon" />
-      </ul>
-      <p>Espero poder seguir conociéndote y que me conozcas más a mí. <span class="resaltar">Feliz cumpleaños</span> para ti, Luis. <span class="resaltar">Te quiero &lt;3</span></p>
-    </div>
-    <img class="full-width" src="images/ranita.gif" alt="Ranita feliz" />
+<div id="mapViewer">
+  <img id="mapImage" src="images/openmap.png" alt="Mapa" />
+  <p id="mapDescription"></p>
+  <div>
+    <button class="boton-marron" onclick="siguienteMapa()">Siguiente</button>
+    <button class="boton-marron" onclick="cerrarMapa()">Cerrar</button>
   </div>
+</div>
 
-  <div id="mapViewer">
-    <img id="mapImage" src="images/openmap.png" alt="Mapa" />
-    <p id="mapDescription"></p>
-    <div>
-      <button class="boton-marron" onclick="siguienteMapa()">Siguiente</button>
-      <button class="boton-marron" onclick="cerrarMapa()">Cerrar</button>
-    </div>
-  </div>
+<script>
+  function mostrarSorpresa() {
+    document.getElementById("inicio").style.display = "none";
+    document.getElementById("sorpresa").style.display = "block";
+  }
 
-  <script>
-    function mostrarSorpresa() {
-      document.getElementById("inicio").style.display = "none";
-      document.getElementById("sorpresa").style.display = "block";
-    }
+  let imagenesMapa = [...Array(26)].map((_, i) => `images/openmap${i + 1}.jpg`);
+  imagenesMapa[0] = "images/openmap.png";
+  imagenesMapa[1] = "images/openmap2.png";
+  imagenesMapa[2] = "images/openmap3.jpg";
 
-    let imagenesMapa = [...Array(26)].map((_, i) => `images/openmap${i + 1}.jpg`);
-    imagenesMapa[0] = "images/openmap.png";
-    imagenesMapa[1] = "images/openmap2.png";
-    imagenesMapa[2] = "images/openmap3.jpg";
+  let descripcionesMapa = [
+    "1: Mapa de fantasía.",
+    "2: Otro mapa de fantasía.",
+    "3: Plano de la villa de Tenerife, 1580.",
+    "4: Dibujito de María Concepción Loperena.",
+    "5–26: Diferentes mapas, escenas y dibujos históricos."
+  ];
 
-    let descripcionesMapa = [
-      "1: Mapa de fantasía.",
-      "2: Otro mapa de fantasía.",
-      "3: Plano de la villa de Tenerife, 1580. Contenido en la Relación Geográfica de la villa de Tenerife, gobernación de Santa Marta.",
-      "4: Dibujito de María Concepción Loperena.",
-      "5: Castilla del Oro, Wytfliet, 1597.",
-      "6: Invasión naval británica de Cartagena, Colombia, 1741.",
-      "7: Calle en Bogotá, Colombia, 1880.",
-      "8: Importante puerto colonial español, Cartagena, siglo XVII.",
-      "9: Granos de café esparcidos, siglo XIX.",
-      "10: Selva tropical en la cuenca del Amazonas.",
-      "11: Botes en el río Magdalena, siglo XIX.",
-      "12: Calle de Cali, siglo XIX.",
-      "13: Esclavos recogiendo café en Brasil, siglo XIX.",
-      "14: Barcos españoles en puerto colonial.",
-      "15: Cruceros españoles capturando barcos ingleses.",
-      "16: Simón Bolívar agonizante.",
-      "17: Mapa del Estrecho de Magallanes, 1602.",
-      "18: Geografía del Nuevo Mundo, 1540.",
-      "19: Nativos de Brasil, la Patagonia y Tierra del Fuego, 1980.",
-      "20: Río de Janeiro, 1599.",
-      "21: Mapa de Alaska, siglo XIX.",
-      "22: Mapa del Istmo de Panamá, 1754.",
-      "23: Construcción naval en la América colonial.",
-      "24: Caballito del diablo, 1746-1749.",
-      "25: Escarabajos cerambícidos, 1746-1749.",
-      "26: Tortugas de Galápagos, siglo XIX."
-    ];
+  let indiceMapa = 0;
 
-    let indiceMapa = 0;
+  function abrirMapa() {
+    document.getElementById("mapViewer").style.display = "flex";
+    document.getElementById("mapImage").src = imagenesMapa[indiceMapa];
+    document.getElementById("mapDescription").textContent = descripcionesMapa[indiceMapa] || "";
+  }
 
-    function abrirMapa() {
-      document.getElementById("mapViewer").style.display = "flex";
-      document.getElementById("mapImage").src = imagenesMapa[indiceMapa];
-      document.getElementById("mapDescription").textContent = descripcionesMapa[indiceMapa];
-    }
+  function cerrarMapa() {
+    document.getElementById("mapViewer").style.display = "none";
+    indiceMapa = 0;
+  }
 
-    function cerrarMapa() {
-      document.getElementById("mapViewer").style.display = "none";
-      indiceMapa = 0;
-    }
-
-    function siguienteMapa() {
-      indiceMapa = (indiceMapa + 1) % imagenesMapa.length;
-      document.getElementById("mapImage").src = imagenesMapa[indiceMapa];
-      document.getElementById("mapDescription").textContent = descripcionesMapa[indiceMapa];
-    }
-
-    const mapIcon = document.getElementById('mapIcon');
-    function toggleMapZoom(shouldZoom) {
-      mapIcon.style.transform = shouldZoom ? 'scale(1.2)' : 'scale(1)';
-    }
-    mapIcon.addEventListener('mouseenter', () => toggleMapZoom(true));
-    mapIcon.addEventListener('mouseleave', () => toggleMapZoom(false));
-    mapIcon.addEventListener('touchstart', () => toggleMapZoom(true));
-    mapIcon.addEventListener('touchend', () => toggleMapZoom(false));
-  </script>
+  function siguienteMapa() {
+    indiceMapa = (indiceMapa + 1) % imagenesMapa.length;
+    document.getElementById("mapImage").src = imagenesMapa[indiceMapa];
+    document.getElementById("mapDescription").textContent = descripcionesMapa[indiceMapa] || "";
+  }
+</script>
 
 </body>
 </html>
